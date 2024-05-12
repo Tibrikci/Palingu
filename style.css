@@ -1,0 +1,519 @@
+@font-face {
+  font-family: "Nunito";
+  src: url("Assets/Nunito.ttf") format("truetype");
+}
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+a {
+  display: block;
+  text-decoration: none;
+  color: #05001b;
+  display: flex;
+}
+
+body {
+  background-image: url(Assets/textura.webp);
+  background-color: #0a5efb;
+  color: #05001b;
+  font-family: "Nunito", sans-serif;
+  overflow-x: hidden;
+}
+
+input[type="checkbox"] {
+  visibility: hidden;
+}
+.toplogo {
+  padding: 5px;
+  height: 50px;
+  margin: 5px;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: solid 1px #ffb339;
+}
+
+.palingu {
+  height: 50px;
+}
+
+.userstats {
+  display: flex;
+  align-items: center;
+}
+
+.topbar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+}
+
+.searchbar {
+  border: 0.5px solid #ffb339;
+  border-radius: 5000px;
+  background-color: #5d72fe;
+  opacity: 50%;
+  width: 80%;
+  height: 25px;
+  padding: 10px;
+  margin: 5px;
+  color: white;
+}
+
+.msgtext:empty:not(:focus):before,
+.roomdesc:empty:not(:focus):before,
+.newroomname:empty:not(:focus):before,
+.searchbar:empty:not(:focus):before {
+  content: attr(placeholder);
+}
+
+.topicon {
+  width: auto;
+  height: 45px;
+  margin: 5px;
+}
+
+.topicon:not(#tpp) {
+  filter: invert() drop-shadow(0px 0px 1px #ffb339);
+}
+
+#tpp {
+  border-radius: 50px;
+  height: 50px;
+  width: 50px;
+  object-fit: cover;
+  margin: 0px;
+}
+
+.nick {
+  color: white;
+  margin-right: 5px;
+  text-align: right;
+}
+
+#filtericon {
+  height: 50px;
+}
+
+.list {
+  margin-top: 15px;
+}
+
+.listname {
+  padding-left: 10px;
+  font-weight: bolder;
+  color: white;
+}
+
+.roomlistbox {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: nowrap;
+  overflow-x: scroll;
+  width: 100%;
+  height: auto;
+}
+
+.room {
+  padding: 5px;
+  background-color: #f7f8ff;
+  width: 200px;
+  height: 210px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 5px;
+  border: 0.5px solid gray;
+  border-radius: 25px;
+  font-size: 8pt;
+}
+
+#preroom {
+  border: double 5px #ffb339;
+}
+
+.roomtop {
+  height: 125px;
+}
+
+.roompp {
+  margin: auto;
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 5000px;
+  border: 5px double #9fbdc9;
+}
+
+.auth {
+  background-color: white;
+  border: 5px double #9fbdc9;
+  border-radius: 50px;
+  padding: 2px 5px;
+  font-weight: bolder;
+  position: relative;
+  transform: translateY(-25px);
+  text-align: center;
+  font-size: 11pt;
+}
+
+.roomname {
+  text-align: center;
+  font-weight: 600;
+  width: 175px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12pt;
+  overflow: hidden;
+  margin-bottom: 5px;
+}
+
+.roomspecs {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  font-size: 10pt;
+  margin: 5px;
+}
+
+.roomspecs img {
+  height: 25px;
+}
+
+.roomspecs .lang {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.score,
+.pps {
+  font-size: 14pt;
+  font-weight: 900;
+}
+
+/* ROOM.HTML */
+/* ROOM.HTML */
+/* ROOM.HTML */
+/* ROOM.HTML */
+/* ROOM.HTML */
+
+.roomtopcontainer {
+  display: flex;
+  flex-direction: row;
+  margin: 20px;
+}
+
+.roomtopside {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: stretch;
+  flex-wrap: wrap;
+  height: 100px;
+}
+
+.newroompp {
+  margin: 5px;
+  background-color: #f7f8ff;
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 25px;
+  border: double 10px #0a5efb;
+}
+
+.newroompp img {
+  object-fit: cover;
+  width: 150px;
+  height: 150px;
+  border-radius: 15px;
+}
+
+.newroomname {
+  margin: 5px;
+  width: 100%;
+  height: 70px;
+  background-color: white;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 10px;
+  flex-wrap: wrap;
+  overflow: hidden;
+  font-weight: 900;
+}
+
+.roomotherspecs {
+  width: 100%;
+  margin: 5px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.roomotherspecs .score,
+.pplimit,
+.roomlang {
+  background-color: white;
+  border-radius: 15px;
+  width: 90px;
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20pt;
+  font-weight: 1000;
+  color: #0a5efb;
+}
+
+.roomotherspecs .score {
+  font-size: 18pt;
+  line-height: 120%;
+}
+
+.roomdesc {
+  padding: 25px;
+  margin: 0px 25px;
+  width: 72.5%;
+  height: 100px;
+  background-color: white;
+  border-radius: 25px;
+  font-size: 10pt;
+}
+
+.msgbox {
+  width: 100%;
+}
+
+.msgs {
+  padding: 25px;
+  margin: 25px;
+  height: 300px;
+  background-color: rgba(0, 0, 0, 0.045);
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+  overflow: scroll;
+  box-shadow: inset black 0px 0px 20px;
+  border-radius: 25px;
+}
+
+.msg {
+  background-color: white;
+  display: flex;
+  align-items: baseline;
+  margin: 5px;
+  padding: 10px;
+  border-radius: 50px;
+}
+
+#msg1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.msguser {
+  padding: 10px;
+  background-color: #0a5efb;
+  border-radius: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16pt;
+  color: white;
+  font-weight: bolder;
+  margin-right: 10px;
+}
+
+#msg2 {
+  align-self: flex-end;
+}
+
+.msgtextbox {
+  display: flex;
+  align-items: center;
+}
+
+.msgtext {
+  padding: 5px 25px;
+  margin: 0px 25px;
+  height: 40px;
+  width: 55%;
+  display: flex;
+  align-items: center;
+  box-shadow: inset black 0px 0px 20px;
+  border-radius: 25px;
+  color: white;
+  font-weight: 500;
+}
+
+.sendbutton {
+  padding: 5px;
+  background-color: white;
+  border-radius: 50px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sendbutton img {
+  height: 25px;
+  filter: invert(23%) sepia(78%) saturate(5151%) hue-rotate(221deg)
+    brightness(104%) contrast(97%);
+}
+
+.tags {
+  padding: 25px;
+  margin: 25px;
+  margin-bottom: 175px;
+  height: 70px;
+  width: 72.5%;
+  background-color: white;
+  border-radius: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  overflow: scroll;
+}
+
+.tag {
+  padding: 10px;
+  background-color: #0a5efb;
+  height: fit-content;
+  margin: 5px;
+  border-radius: 50px;
+  color: white;
+  border: solid 1px black;
+}
+
+.userlistwrapper {
+  display: flex;
+  justify-content: space-between;
+  flex-grow: 1;
+  align-items: center;
+  margin: 25px;
+}
+
+.userlist {
+  padding: 20px 25px;
+  height: 100px;
+  width: 60%;
+  background-color: white;
+  border-radius: 25px;
+  display: flex;
+  flex-wrap: wrap;
+  overflow: scroll;
+}
+
+.userlist .tag:first-child {
+  color: #ffb339;
+  font-weight: 900;
+}
+
+.userlist .tag {
+  font-size: 8pt;
+}
+
+.userlistwrapper .pplimit {
+  height: 140px;
+}
+
+.jbutton {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: white;
+  padding: 25px 40px;
+  font-size: 20pt;
+  border-radius: 50px;
+  filter: drop-shadow(0px 0px 10px);
+  border: double 10px #ffb339;
+}
+
+/* NEWROOM.HTML */
+/* NEWROOM.HTML */
+/* NEWROOM.HTML */
+/* NEWROOM.HTML */
+
+.newroompp:has(#cam) {
+  margin: 5px;
+  background-color: #f7f8ff;
+  width: 55%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 25px;
+  border: double 10px #0a5efb;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#cam {
+  opacity: 0.2;
+  width: 50px;
+  height: 50px;
+}
+
+.limitbox:has(#limit:not(checked)),
+.langbox:has(#lang:not(checked)) {
+  visibility: hidden;
+}
+
+.limitbox:has(#limit:checked),
+.langbox:has(#lang:checked) {
+  visibility: visible;
+}
+
+.limitbox,
+.langbox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(5px);
+  width: 100vw;
+  height: 100vh;
+  z-index: 10;
+}
+
+.langs {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.langs .lang {
+  padding: 10px;
+  margin: 5px;
+  border-radius: 10px;
+  background-color: white;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #0a5efb;
+  font-size: 26pt;
+  font-weight: 900;
+}
+
+.langs .lang img {
+  filter: drop-shadow(0px 0px 5px #ffb339);
+}
